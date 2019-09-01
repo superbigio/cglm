@@ -282,6 +282,14 @@ glmc_vec4_hadd(vec4 v);
 CGLM_EXPORT
 void
 glmc_vec4_sqrt(vec4 v, vec4 dest);
+    
+CGLM_EXPORT
+void
+glmc_vec4_recip(vec4 v, vec4 dest);
+
+CGLM_EXPORT
+void
+glmc_vec4_rsqrt(vec4 v, vec4 dest);
 
 #ifdef __cplusplus
 }

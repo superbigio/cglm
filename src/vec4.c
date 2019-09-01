@@ -381,3 +381,15 @@ void
 glmc_vec4_sqrt(vec4 v, vec4 dest) {
   glm_vec4_sqrt(v, dest);
 }
+
+CGLM_EXPORT
+void
+glmc_vec4_recip(vec4 v, vec4 dest) {
+  glm_vec4_recip(v, dest);
+}
+
+CGLM_EXPORT
+void
+glmc_vec4_rsqrt(vec4 v, vec4 dest) {
+  glm_vec4_rsqrt(v, dest);
+}

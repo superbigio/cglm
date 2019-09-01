@@ -28,6 +28,8 @@
    CGLM_INLINE void  glm_vec4_fract(vec4 v, vec4 dest);
    CGLM_INLINE float glm_vec4_hadd(vec4 v);
    CGLM_INLINE void  glm_vec4_sqrt(vec4 v, vec4 dest);
+   CGLM_INLINE void  glm_vec4_recip(vec4 v, vec4 dest);
+   CGLM_INLINE void  glm_vec4_rsqrt(vec4 v, vec4 dest);
  */
 
 #ifndef cglm_vec4_ext_h
@@ -309,6 +311,44 @@ glm_vec4_sqrt(vec4 v, vec4 dest) {
   dest[1] = sqrtf(v[1]);
   dest[2] = sqrtf(v[2]);
   dest[3] = sqrtf(v[3]);
+#endif
+}
+
+/*!
+ * @brief reciprocal of each vector item
+ *
+ * @param[in]  v    vector
+ * @param[out] dest destination vector
+ */
+CGLM_INLINE
+void
+glm_vec4_recip(vec4 v, vec4 dest) {
+#if defined( __SSE__ ) || defined( __SSE2__ )
+  glmm_store(dest, _mm_rcp_ps(glmm_load(v)));
+#else
+  dest[0] = 1.0f / v[0];
+  dest[1] = 1.0f / v[1];
+  dest[2] = 1.0f / v[2];
+  dest[3] = 1.0f / v[3];
+#endif
+}
+
+/*!
+ * @brief reciprocal square root of each vector item
+ *
+ * @param[in]  v    vector
+ * @param[out] dest destination vector
+ */
+CGLM_INLINE
+void
+glm_vec4_rsqrt(vec4 v, vec4 dest) {
+#if defined( __SSE__ ) || defined( __SSE2__ )
+  glmm_store(dest, _mm_rsqrt_ps(glmm_load(v)));
+#else
+  dest[0] = 1.0f / sqrtf(v[0]);
+  dest[1] = 1.0f / sqrtf(v[1]);
+  dest[2] = 1.0f / sqrtf(v[2]);
+  dest[3] = 1.0f / sqrtf(v[3]);
 #endif
 }
 

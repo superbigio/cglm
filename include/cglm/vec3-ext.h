@@ -28,6 +28,8 @@
    CGLM_INLINE void  glm_vec3_fract(vec3 v, vec3 dest);
    CGLM_INLINE float glm_vec3_hadd(vec3 v);
    CGLM_INLINE void  glm_vec3_sqrt(vec3 v, vec3 dest);
+   CGLM_INLINE void  glm_vec3_recip(vec3 v, vec3 dest);
+   CGLM_INLINE void  glm_vec3_rsqrt(vec3 v, vec3 dest);
  */
 
 #ifndef cglm_vec3_ext_h
@@ -267,6 +269,34 @@ glm_vec3_sqrt(vec3 v, vec3 dest) {
   dest[0] = sqrtf(v[0]);
   dest[1] = sqrtf(v[1]);
   dest[2] = sqrtf(v[2]);
+}
+
+/*!
+ * @brief reciprocal of each vector item
+ *
+ * @param[in]  v    vector
+ * @param[out] dest destination vector
+ */
+CGLM_INLINE
+void
+glm_vec3_recip(vec3 v, vec3 dest) {
+  dest[0] = 1.0f / v[0];
+  dest[1] = 1.0f / v[1];
+  dest[2] = 1.0f / v[2];
+}
+
+/*!
+ * @brief reciprocal square root of each vector item
+ *
+ * @param[in]  v    vector
+ * @param[out] dest destination vector
+ */
+CGLM_INLINE
+void
+glm_vec3_rsqrt(vec3 v, vec3 dest) {
+  dest[0] = 1.0f / sqrtf(v[0]);
+  dest[1] = 1.0f / sqrtf(v[1]);
+  dest[2] = 1.0f / sqrtf(v[2]);
 }
 
 #endif /* cglm_vec3_ext_h */

@@ -305,6 +305,14 @@ glmc_vec3_hadd(vec3 v);
 CGLM_EXPORT
 void
 glmc_vec3_sqrt(vec3 v, vec3 dest);
+    
+CGLM_EXPORT
+void
+glmc_vec3_recip(vec3 v, vec3 dest);
+
+CGLM_EXPORT
+void
+glmc_vec3_rsqrt(vec3 v, vec3 dest);
 
 #ifdef __cplusplus
 }

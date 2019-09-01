@@ -28,6 +28,8 @@
    CGLM_INLINE vec4s glms_vec4_fract(vec4s v);
    CGLM_INLINE float glms_vec4_hadd(vec4s v);
    CGLM_INLINE vec4s glms_vec4_sqrt(vec4s v);
+   CGLM_INLINE vec4s glms_vec4_recip(vec4s v);
+   CGLM_INLINE vec4s glms_vec4_rsqrt(vec4s v);
  */
 
 #ifndef cglms_vec4s_ext_h
@@ -251,6 +253,34 @@ vec4s
 glms_vec4_sqrt(vec4s v) {
   vec4s r;
   glm_vec4_sqrt(v.raw, r.raw);
+  return r;
+}
+
+/*!
+ * @brief reciprocal of each vector item
+ *
+ * @param[in]  v    vector
+ * @returns         destination vector
+ */
+CGLM_INLINE
+vec4s
+glms_vec4_recip(vec4s v) {
+  vec4s r;
+  glm_vec4_recip(v.raw, r.raw);
+  return r;
+}
+
+/*!
+ * @brief reciprocal square root of each vector item
+ *
+ * @param[in]  v    vector
+ * @returns         destination vector
+ */
+CGLM_INLINE
+vec4s
+glms_vec4_rsqrt(vec4s v) {
+  vec4s r;
+  glm_vec4_rsqrt(v.raw, r.raw);
   return r;
 }
 
